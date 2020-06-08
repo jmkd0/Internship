@@ -40,8 +40,8 @@ class FluxController extends AbstractController
         $errors = null;
         $datas = array();
         dump($createUrl);
+        //First try to load xml file with $createUrl[0], if there is no content so load json file
         $content = $this->loadDatas($createUrl[0]);
-        
         if($content = $content ? $content : $this->loadDatas($createUrl[1])){
             if(@json_decode($content, true) !== null){
                 dump("json");
