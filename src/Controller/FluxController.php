@@ -22,9 +22,8 @@ class FluxController extends AbstractController
         if($request->request->count() > 0){
             //get and build URL
             $url = $request->request->get('url');                           
-            $typeFile = $request->request->get('type-file');
-            $createUrl = $this->buildUrl($url, $typeFile);              
-            $response = $this->goToFilter($createUrl, $url, $typeFile);
+            $createUrl = $this->buildUrl($url);              
+            $response = $this->goToFilter($createUrl, $url);
         }else $response = [null, null, null, null];
 
         return $this->render('flux/index.html.twig', [
@@ -37,38 +36,45 @@ class FluxController extends AbstractController
      * Call the right function to filter Actions
      * Return datas as a list of any Actions found
      */
-    public function goToFilter($createUrl, $url, $typeFile){
+    public function goToFilter($createUrl, $url){
         $errors = null;
         $datas = array();
-        if($content = $this->loadDatas($createUrl)){/* */
+        dump($createUrl);
+        $content = $this->loadDatas($createUrl[0]);
+        
+        if($content = $content ? $content : $this->loadDatas($createUrl[1])){
             if(@json_decode($content, true) !== null){
+                dump("json");
                 $datas = $this->filterActionsJSON($content);
             } else  $datas = $this->filterActionsXML($content);
             if(count($datas) == 0) $errors = "No item found...";
-            dump($datas);
+            
         } else $errors = "Url not found..."; 
-        return array($datas, $url, $typeFile, $errors);
+        return array($datas, $url, $errors);
     }
     /**
      * Parse URL to build the specific URL such as:
      * URL without a main domain root
      * URL with https://www.brandalley.fr/ domain root 
      */
-    public function buildUrl($url, $typeFile){
-        $link["xml"] = "http://brandalley-frontapi-preview-frfr.sparkow.net/";
-        $link["json"] = "http://brandalley-frontapi-preview-frfr.json.net/";
+    public function buildUrl($url){
+        $link1 = "http://brandalley-frontapi-preview-frfr.sparkow.net/";
+        $link2 = "http://brandalley-frontapi-preview-frfr.sparkow.net/json/";
         $urlBrand = "https://www.brandalley.fr/";
+        $urls = array($url, null);
         //URL for xml file
         $list = explode($urlBrand, $url);
         if(count($list) > 1){
-            $url = $link[$typeFile].$list[1];
+            $urls[0] = $link1.$list[1];
+            $urls[1] = $link2.$list[1];
         }else{
             $list = explode("http", $url);
             if(count($list) == 1){
-              $url = $link[$typeFile].$list[0];
+              $urls[0] = $link1.$list[0];
+              $urls[1] = $link2.$list[0];
            }
         }
-        return $url;
+        return $urls;
     }
     /**
      * XML Filter
@@ -107,17 +113,16 @@ class FluxController extends AbstractController
      */
     public function filterActionsJSON( $content){
         //Convert to be load as json
-        $json_content = json_decode($content);
+        $json_content = json_decode($content, true);
         $allActions = array();
         $this->findActionsJson($json_content, "Actions", $allActions);
         $i = 1;
         $datas = array();
         //Create each action
         foreach($allActions as $actions){
-            $data = array($i, $actions->Id, $actions->Label, $actions->FrontLabel, 
-                            $actions->Position, $actions->Priority, $actions->Metadata,
-                            $actions->HtmlContent);
-
+            $data = array($i, $actions[0]['Id'], $actions[0]['Label'], $actions[0]['FrontLabel'], 
+                            $actions[0]['Position'], $actions[0]['Priority'], $actions[0]['Metadata'][0]['Value'],
+                            $actions[0]['HtmlContent']);
             $action = $this->createOneAction($data);
             array_push($datas, $action);
             $i++;
@@ -146,10 +151,11 @@ class FluxController extends AbstractController
      */
     public function findActionsJson($node, $index, &$actions) {
         foreach ($node as $key => $value) {
-            if($key == $index){
+            if($key === $index){
                 $actions[] = $value;
-            }else if(is_object($value))
-                    $this->findActionsJson($value, $index, $actions);
+            }else if(is_array($value)){
+                $this->findActionsJson($value, $index, $actions);
+            }      
         }
     } 
     /**
@@ -174,10 +180,8 @@ class FluxController extends AbstractController
 	        		//Now lets uncompress the compressed data
 	        		$content = gzinflate( substr($content,10,-8) );
 	        	}
-	        }
-	        
+	        }    
         }
         return $content;
     }
-
 }

@@ -13,16 +13,12 @@
     <div class="container">
         <form id = "id-form" action="" method="post">
             <input  id = "id-input" value ="{{response[1]}}" type="text" placeholder="Enter the Url here" name="url" required>
-            <select id="id-xml-json" name="type-file" required>
-              <option value="xml">XML</option>
-              <option value="json">JSON</option>
-            </select>
             <button id = "id-submit" type="submit"><span>Search</span></button>
         </form>
         
         <div id = "id-reset"><button id = "reset-button" type="button" onclick="resetInput('id-input', 'actions')">Reset</button></div>
             <div id = "actions">
-                <div id="id-response"> {{response[3]}}</div>
+                <div id="id-response"> {{response[2]}}</div>
                 {% for data in response[0] %}
                 <div>
                     <div id = "action">
