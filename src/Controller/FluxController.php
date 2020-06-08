@@ -64,12 +64,12 @@ class FluxController extends AbstractController
         $urls = array($url, null);
         //URL for xml file
         $list = explode($urlBrand, $url);
-        if(count($list) > 1){
+        if(count($list) > 1){ //if url begin with https://www.brandalley.fr/
             $urls[0] = $link1.$list[1];
             $urls[1] = $link2.$list[1];
         }else{
             $list = explode("http", $url);
-            if(count($list) == 1){
+            if(count($list) == 1){ //if url not contain any domain name
               $urls[0] = $link1.$list[0];
               $urls[1] = $link2.$list[0];
            }
