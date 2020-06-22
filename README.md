@@ -1,4 +1,4 @@
-# Processing of XML and JSON stream datas 
+# XML and JSON data flow processing
 This module helps to extract datas from XML or JSON file
 
 ## Project's Goal:
