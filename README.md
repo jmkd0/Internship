@@ -8,7 +8,7 @@ This module is useful for searching data from XML and JSON database with litle s
 
 ## Project on Windows:
 ### Installation of composer:
-Go to getcomposer.org and install the latest version of composer and install it.
+Go to [Composer Installation](https://getcomposer.org/) and install the latest version of composer and install it.
 Begin the installation, 
 -Do not check developer mode
 -Browse the path of php.exe; for example C:\XAMP\php\php.exe if php is installed in XAMP
