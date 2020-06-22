@@ -4,7 +4,7 @@ This module helps to extract datas from XML or JSON file
 ## Project's Goal:
 -Creation of a module allowing to request, parse an XML and JSON flow. 
 -Create an interface allowing to visualize the result of the request.
-This module is useful for searching dataML and JSON database with litle step.
+This module is useful for searching data from XML and JSON database with litle step.
 
 ## Project on Windows:
 ### Installation of composer:
