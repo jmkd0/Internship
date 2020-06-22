@@ -14,14 +14,14 @@
         <form id = "id-form" action="" method="post">
             <input  id = "id-input" value ="{{response[1]}}" type="text" placeholder="Enter the page (XML or JSON) URL" name="url" required>
             <div id="id-xml-json">
-                <div class="class-xml-json">
-                    <input type="radio" id="id-xml" name="type" value="xml">
-                    <label for="id-xml" id="id-xml-l">XML </label>
-                </div><br>
-                <div class="class-xml-json">
+                <label class="checklabel">XML
+                    <input type="radio" id="id-xml"name="type" value="xml">
+                    <span class="checkmark"></span>
+                </label><br>
+                <label class="checklabel">JSON
                     <input type="radio" id="id-json" name="type" value="json">
-                    <label for="id-json" id="id-json-l">JSON</label>
-                </div>
+                    <span class="checkmark"></span>
+                </label>
             </div>
             <button id = "id-submit" type="submit"><span>Search</span></button>
         </form>
