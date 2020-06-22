@@ -1,5 +1,6 @@
 <?php
 namespace App\Entity;
+use \DateTime;
 class Actions
 {
     private $index;
@@ -137,7 +138,8 @@ class Actions
      * @return string
      */
     public function getBeginDate(){
-        return $this->beginDate;
+        $date = new DateTime($this->beginDate);
+        return $date->format("d/m/Y H:i:s");
     }
 
     /**
