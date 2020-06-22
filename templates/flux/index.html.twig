@@ -13,10 +13,16 @@
     <div class="container">
         <form id = "id-form" action="" method="post">
             <input  id = "id-input" value ="{{response[1]}}" type="text" placeholder="Enter the page (XML or JSON) URL" name="url" required>
-            <select id="id-xml-json" name="type" required>
-              <option value="xml">XML</option>
-              <option value="json">JSON</option>
-            </select>
+            <div id="id-xml-json">
+                <div class="class-xml-json">
+                    <input type="radio" id="id-xml" name="type" value="xml">
+                    <label for="id-xml" id="id-xml-l">XML </label>
+                </div><br>
+                <div class="class-xml-json">
+                    <input type="radio" id="id-json" name="type" value="json">
+                    <label for="id-json" id="id-json-l">JSON</label>
+                </div>
+            </div>
             <button id = "id-submit" type="submit"><span>Search</span></button>
         </form>
         
@@ -48,7 +54,12 @@
 </div>
 
 <script>
-document.getElementById('id-xml-json').options[{{response[2]}}].selected = 'selected';
+let opt = {{response[2]}};
+if(opt === 0)
+    document.getElementById('id-xml').checked = true;
+if(opt === 1)
+    document.getElementById('id-json').checked = true;
+
 
   function resetInput(input, actions){
     document.getElementById(input).value='';

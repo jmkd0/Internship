@@ -1,12 +1,11 @@
 <?php
-namespace App\Repository;
+namespace App\Processing;
 use App\Entity\Actions;
 use Symfony\Component\DomCrawler\Crawler;
 class Flux
 {
 /**
      * Undocumented function
-     *
      * @param string $url
      * @param string $type
      * @return array
@@ -36,7 +35,7 @@ class Flux
                 default: 
                     $errors = "No type file chosen...";
             }  
-        } else $errors = "Url not found..."; 
+        } else $errors = "Url not found...or Network problem"; 
         return array($datas, $url, $index, $errors);
     }
     /**

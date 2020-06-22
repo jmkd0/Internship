@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\Flux;
+use App\Processing\Flux;
 use Symfony\Component\HttpFoundation\Request;
 
 class FluxController extends AbstractController
@@ -21,7 +21,8 @@ class FluxController extends AbstractController
         if($request->request->count() > 0){
             //get and build URL
             $url = $request->request->get('url');
-            $type = $request->request->get('type');                         
+            $type = $request->request->get('type');  
+            //dump($type) ;                      
             $flux = new Flux();
             $response = $flux->buildResponse($url, $type);
         } else $response = [null, null, 0, null];

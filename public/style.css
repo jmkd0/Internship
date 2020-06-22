@@ -58,20 +58,32 @@ input[type=text]:focus{
 }
 
 #id-form{
+    width: 100%; 
+    font-size: 12px;
     display: flex;
 }
 #id-input{
-    flex: 90%;
+    flex: 92%;
+    font-size: 20px;
+}
+#id-xml-json{
+    font-size: 18px;
 }
 #id-submit{
     flex: 8%;
-    
+    font-size: 22px;
     background-color: #474e5d;
 }
 #id-submit:active {
     background-color: #3e8e41;
     transform: translateY(4px);
   }
+.class-xml-json{
+    display: flex;
+}
+#id-xml-l, #id-json-l{
+    flex: 20%;
+}
 #id-reset{
     height: 1vw;
     margin-top: 1vh;
@@ -81,11 +93,11 @@ input[type=text]:focus{
     color: white;
     margin-left: auto;
     margin-right: auto;
-    font-size: 2.4vh;
+    font-size: 20px;
     border: none;
     cursor: pointer;
     float:right;
-    width: 12vh;
+    width: 10vh;
     opacity: 0.9;
     border-radius: 1vh;
     background-color: #474e5d;
