@@ -42,19 +42,25 @@ username@computername:~/Internships$ symfony server:start
 ```
 
 ## Execution:
-Paste the following url in the browser: http://localhost:8000/flux and 
-### Example 1
+Paste the following url in the browser: http://localhost:8000/flux.
+The following url are valid:
+### Example 1: xml file
 -Type in the search bar
 ```shell
 http://brandalley-frontapi-preview-frfr.sparkow.net/C-1812507-robes/NW-129-univers~femme
 ```
-### Example 2
+### Example 2: Json file
+-Type in the search bar
+```shell
+http://brandalley-frontapi-preview-frfr.sparkow.net/json/C-1812507-robes/NW-129-univers~femme
+```
+### Example 3: 
 -Type in the search bar
 
 ```shell
 C-1812507-robes/NW-129-univers~femme
 ```
-### Example 3
+### Example 4:
 -Type in the search bar
 
 ```shell
