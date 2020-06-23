@@ -1,9 +1,9 @@
-# XML and JSON data flow processing
+# XML and JSON data flow processing to extract and visualize MerchandisingActions on Brandalley France E-commerce Website
 This module helps to extract datas from XML or JSON file
 
 ## Project's Goal:
 -Creation of a module allowing to request, parse XML and JSON data flow. 
--Create an interface allowing to visualize the result of the request.
+-Create an interface to access easily MerchandisingActions in website Page via XML or JSON database.
 This module is useful for searching data from XML and JSON database with litle step.
 
 ## Project on Windows:
@@ -42,7 +42,7 @@ username@computername:~/Internships$ symfony server:start
 ```
 
 ## Execution:
-Paste the following url in the browser: http://localhost:8000/flux.
+Go to the following url in the browser: http://localhost:8000/flux.
 The following url are valid:
 ### Example 1: xml file
 -Type in the search bar
@@ -66,4 +66,4 @@ C-1812507-robes/NW-129-univers~femme
 ```shell
 https://www.brandalley.fr/C-1812514-vestes/NW-129-univers~femme
 ```
-## [Click here to find a quick Demo](https://jmkd.fr/jmkd/internship_demo.mp4)
+## [View Demo](https://jmkd.fr/jmkd/internship_demo.mp4)

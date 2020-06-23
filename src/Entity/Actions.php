@@ -1,6 +1,9 @@
 <?php
 namespace App\Entity;
 use \DateTime;
+/**
+ * CLass to store properties on MarchandesignActions
+ */
 class Actions
 {
     private $index;
