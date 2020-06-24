@@ -34,7 +34,7 @@ If xml dependencie error:
 ```shell
 username@computername:~$ sudo apt-get install php7.4-xml
 ```
-Install Symfony:
+### Install Symfony:
 ```shell
 sudo wget https://get.symfony.com/cli/installer -O - | bash
 Add Symfony to the Shell:
