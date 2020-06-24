@@ -6,6 +6,28 @@ This module helps to extract datas from XML or JSON file
 -Create an interface to access easily MerchandisingActions in website Page via XML or JSON database.
 This module is useful for searching data from XML and JSON database with litle step.
 
+## Project on MacOS
+### Install php 
+```shell
+curl -s http://php-osx.liip.ch/install.sh | bash -s 7.4
+```
+### Update php to 7.4
+```shell
+brew install php@7.4
+```
+### Install composer
+```shell
+>curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+chmod +x /usr/local/bin/composer
+```
+
+### Install Symfony
+```shell
+ curl -sS https://get.symfony.com/cli/installer | bash
+ ```
+
+
 ## Project on Windows:
 ### Installation of composer:
 Go to [Composer Installation](https://getcomposer.org/) and install the latest version of composer and install it.
