@@ -34,6 +34,14 @@ If xml dependencie error:
 ```shell
 username@computername:~$ sudo apt-get install php7.4-xml
 ```
+Install Symfony:
+```shell
+sudo wget https://get.symfony.com/cli/installer -O - | bash
+Add Symfony to the Shell:
+export PATH="$HOME/.symfony/bin:$PATH"
+mv /home/komlan/.symfony/bin/symfony /usr/local/bin/symfony
+```
+
 ### Clone Project from git repository
 ```shell
 username@computername:~$ git clone https://github.com/jmkd0/Internship.git
