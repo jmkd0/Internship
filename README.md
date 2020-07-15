@@ -96,4 +96,4 @@ C-1812507-robes/NW-129-univers~femme
 ```shell
 https://www.brandalley.fr/C-1812514-vestes/NW-129-univers~femme
 ```
-## [View Demo](https://jmkd.fr/jmkd/internship_demo.mp4)
+## [View Demo](https://jmkd.fr/projects_demos/internship.mp4)
